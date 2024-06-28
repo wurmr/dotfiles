@@ -13,7 +13,7 @@ if (( $+commands[bat] )); then
 fi
 
 if (( $+commands[zoxide] )); then
-    eval “$(zoxide init zsh)”
+    eval “$(zoxide init --cmd cd zsh)”
 fi
 
 #
