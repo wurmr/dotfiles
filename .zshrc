@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/root/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -106,4 +106,4 @@ export STARSHIP_CONFIG=~/.starship/starship.toml
 eval "$(starship init zsh)"
 
 # Created by `pipx` on 2023-11-26 17:18:23
-export PATH="$PATH:/root/.local/bin"
+export PATH="$PATH:~/.local/bin"
