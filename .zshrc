@@ -1,3 +1,5 @@
+export PATH="$PATH:~/.local/bin"
+
 alias k="kubectl"
 alias t="talosctl"
 
@@ -10,9 +12,11 @@ if (( $+commands[bat] )); then
     alias cat="bat"
 fi
 
+if (( $+commands[zoxide] )); then
+    eval “$(zoxide init zsh)”
+fi
+
 #
 export STARSHIP_CONFIG=~/.starship/starship.toml
 eval "$(starship init zsh)"
 
-# Created by `pipx` on 2023-11-26 17:18:23
-export PATH="$PATH:~/.local/bin"
