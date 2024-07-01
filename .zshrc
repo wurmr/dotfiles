@@ -1,4 +1,4 @@
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 alias k="kubectl"
 alias t="talosctl"
@@ -13,7 +13,7 @@ if (( $+commands[bat] )); then
 fi
 
 if (( $+commands[zoxide] )); then
-    eval “$(zoxide init --cmd cd zsh)”
+    eval "$(zoxide init --cmd cd zsh)"
 fi
 
 #
