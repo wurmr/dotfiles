@@ -22,6 +22,10 @@ if (( $+commands[fnm] )); then
     eval "`fnm env`"
 fi
 
+if (( $+commands[thefuck] )); then
+  eval $(thefuck --alias fk)
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #
