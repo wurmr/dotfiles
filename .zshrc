@@ -1,4 +1,4 @@
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 [ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias k="kubectl"
@@ -16,6 +16,10 @@ fi
 
 if (( $+commands[zoxide] )); then
     eval "$(zoxide init --cmd cd zsh)"
+fi
+
+if (( $+commands[fnm] )); then
+    eval "`fnm env`"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
