@@ -33,7 +33,7 @@ export STARSHIP_CONFIG=~/.starship/starship.toml
 eval "$(starship init zsh)"
 
 
-if (( $+commands[thefuck] )); then
+if (( $+commands[tmux] )); then
   if [ -z "$TMUX" ]
   then
     tmux attach -t TMUX || tmux new -s TMUX
