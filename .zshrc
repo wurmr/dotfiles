@@ -34,7 +34,7 @@ eval "$(starship init zsh)"
 
 
 if (( $+commands[tmux] )); then
-  if [ -z "$TMUX" ]
+  if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
   then
     tmux attach -t TMUX || tmux new -s TMUX
   fi
