@@ -1,8 +1,11 @@
 export PATH="$HOME/.local/bin:$PATH"
 [ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-alias k="kubectl"
-alias t="talosctl"
+if [[ $+commands(kubectl) ]]; then
+  alias k="kubectl"
+fi
+
+# alias t="talosctl"
 
 # Tool setup
 if (( $+commands[exa] )); then
