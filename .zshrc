@@ -7,7 +7,7 @@ alias t="talosctl"
 # Tool setup
 if (( $+commands[exa] )); then
     alias ls="exa --icons"
-    alias ll="exa --icons -l"
+    alias ll="exa --icons -l --git"
 fi
 
 if (( $+commands[bat] )); then
