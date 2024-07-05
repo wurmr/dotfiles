@@ -5,6 +5,7 @@ if (( $+commands[kubectl] )); then
   alias k="kubectl"
 fi
 
+alias c="clear"
 # alias t="talosctl"
 
 # Tool setup
