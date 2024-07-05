@@ -1,7 +1,7 @@
 export PATH="$HOME/.local/bin:$PATH"
 [ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-if [[ $+commands(kubectl) ]]; then
+if (( $+commands[kubectl] )); then
   alias k="kubectl"
 fi
 
