@@ -1,8 +1,8 @@
 configuration{
-    modi: "run,window,combi";
+    modi: "drun,run,window,combi";
     icon-theme: "Oranchelo";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -10,6 +10,7 @@ configuration{
     display-combi: " 🖥️  All ";
     display-run: " 🏃  Run ";
     display-window: " 🪟  Window";
+    display-drun: "Apps";
     sidebar-mode: true;
 }
 
