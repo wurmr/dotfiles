@@ -1,67 +1,18 @@
-{
-  "position": "top",
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "hyprland/window"
-  ],
-  "modules-right": [
-    "cpu",
-    "memory",
-    "network",
-    "custom/update",
-    "pulseaudio",
-    "clock"
-  ],
-  "hyprland/window": {
-    "max-length": 200,
-    "separate-outputs": true
+[
+  {
+    "output": [
+      "DP-1"
+    ],
+    "include": [
+      "~/.config/waybar/config.jsonc"
+    ]
   },
-  "clock": {
-    "interval": 30,
-    "format": "{:%I:%M %p}",
-    "max-length": 25
-  },
-  "memory": {
-    "interval": 30,
-    "format": "{}% ",
-    "max-length": 10
-  },
-  "cpu": {
-    "interval": 10,
-    "format": "{}% ",
-    "max-length": 10
-  },
-  "custom/update": {
-    "format": "{}",
-    "escape": true,
-    "return-type": "json",
-    "restart-interval": 60,
-    "tooltip": "false",
-    "command": "~/checkupdates"
-  },
-  "network": {
-    "interface": "enp34s0",
-    "format-linked": "{ifname}",
-    "format-ethernet": "{ipaddr}",
-    "tooltip-format-ethernet": "{ifname} "
-  },
-  "pulseaudio": {
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format": "<span size='13000' foreground='#89b4fa'>{icon} </span> {volume}%",
-    "format-muted": "<span size='14000' foreground='#89b4fa'></span> Muted",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        ""
-      ]
-    }
+  {
+    "output": [
+      "DP-3"
+    ],
+    "include": [
+      "~/.config/waybar/config-2.jsonc"
+    ]
   }
-}
+]
