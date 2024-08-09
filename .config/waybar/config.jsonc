@@ -5,19 +5,31 @@
   "modules-left": ["hyprland/workspaces", "network"],
   "fixed-center": true,
   "modules-center": [
+    "cpu",
     "memory",
     //  "custom/updates",
     "clock",
+    "custom/updates",
     //  "custom/notifications",
     "disk"
   ],
   "modules-right": [
     "tray",
     //  "custom/player",
-    "pulseaudio",
-    "pulseaudio#microphone"
+    "pulseaudio"
+    // "pulseaudio#microphone"
     //    "battery",
   ],
+  "custom/updates": {
+    "format": "{icon}{}",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": ""
+    },
+    "exec-if": "which waybar-updates",
+    "exec": "waybar-updates"
+  },
   "hyprland/window": {
     "format": "{}"
   },
@@ -29,8 +41,8 @@
     }
   },
   "tray": {
-    "icon-size": 12,
-    "spacing": 2
+    "icon-size": 15,
+    "spacing": 7
   },
   "clock": {
     "interval": 60,
@@ -52,8 +64,8 @@
     "tooltip": false,
     "format-muted": " Muted",
     "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 3%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 3%-",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -74,6 +86,10 @@
   },
   "network": {
     "format": "{ipaddr}"
+  },
+  "cpu": {
+    "interval": 3,
+    "format": " {usage}%",
   },
   "memory": {
     "interval": 30,
