@@ -1,0 +1,13 @@
+[pyprland]
+plugins = [
+    "scratchpads",
+    "shift_monitors"
+]
+
+[scratchpads.cider]
+command = "cider"
+#position = "45% 45%"
+size = "50% 50%"
+class = "Cider"
+unfocus = "hide"
+animation = "fromBottom"
