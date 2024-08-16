@@ -3,10 +3,17 @@ export PATH="$HOME/.local/bin:$PATH"
 
 if (( $+commands[kubectl] )); then
   alias k="kubectl"
+  source <(kubectl completion zsh)
 fi
 
 alias c="clear"
 # alias t="talosctl"
+
+# Completions
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
 
 # Tool setup
 if (( $+commands[exa] )); then
