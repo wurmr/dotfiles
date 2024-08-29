@@ -1,6 +1,11 @@
 export PATH="$HOME/.local/bin:$PATH"
 [ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Completions
+autoload -Uz compinit
+compinit
+
+
 if (( $+commands[kubectl] )); then
   alias k="kubectl"
   source <(kubectl completion zsh)
@@ -8,10 +13,6 @@ fi
 
 alias c="clear"
 # alias t="talosctl"
-
-# Completions
-autoload -Uz compinit
-compinit
 
 zstyle ':completion:*' menu select
 
@@ -50,3 +51,5 @@ if (( $+commands[tmux] )); then
     tmux attach -t TMUX || tmux new -s TMUX
   fi
 fi
+
+export EDITOR=nvim
