@@ -5,7 +5,6 @@ export PATH="$HOME/.local/bin:$PATH"
 autoload -Uz compinit
 compinit
 
-
 if (( $+commands[kubectl] )); then
   alias k="kubectl"
   source <(kubectl completion zsh)
@@ -43,7 +42,6 @@ fi
 #
 export STARSHIP_CONFIG=~/.starship/starship.toml
 eval "$(starship init zsh)"
-
 
 if (( $+commands[tmux] )); then
   if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
