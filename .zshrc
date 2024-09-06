@@ -10,7 +10,10 @@ if (( $+commands[kubectl] )); then
   source <(kubectl completion zsh)
 fi
 
+
+
 alias c="clear"
+alias lg="lazygit"
 # alias t="talosctl"
 
 zstyle ':completion:*' menu select
