@@ -9,7 +9,7 @@
     "format": "{}"
   },
   "clock": {
-    "format": "<span color='#b4befe'> </span>{:%H:%M}",
+    "format": "{:%A, %B %d | %I:%M %p}",
     "tooltip": false
   },
   "hyprland/workspaces": {
