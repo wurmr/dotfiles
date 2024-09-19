@@ -1,173 +1,124 @@
 @import "./mocha.css";
 
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono";
   font-size: 14px;
-  min-height: 0;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  min-height: 23px;
 }
 
 window#waybar {
-  background-color: @base;
-  opacity: 1;
+  background-color: #1e1e2e;
 }
 
-tooltip {
-  background: @crust;
-  border-radius: 1em;
-  border-width: 2.5px;
-  border-style: solid;
-  border-color: @rosewater;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
+/* General style for workspace buttons */
 #workspaces button {
-  color: @lavender;
-  background: @crust;
-  margin-right: 5px;
-  padding-right: .1em;
-  padding-left: .1em;
+  background-color: #1e1e2e; /* Base (dark background) */
+  color: #cdd6f4; /* Text color */
+  border: none;
+  border-radius: 3px;
+  padding: 0px 5px; /* Reduced padding for a shorter height */
+  margin: 1px; /* Minimal gap between buttons */
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Style for the active workspace */
 #workspaces button.active {
-  color: @peach;
+  background-color: #b4befe; /* Brighter blue for active workspace */
+  color: #1e1e2e; /* Dark text for contrast */
+  font-weight: bold;
 }
 
-#workspaces button.focused {
-  color: @green;
-  background: @maroon;
-  border-radius: 1em;
-}
-
+/* Style for urgent workspaces */
 #workspaces button.urgent {
-  color: @flamingo;
+  background-color: #f38ba8; /* Red for urgent workspace */
+  color: #1e1e2e; /* Dark text */
+  font-weight: bold;
 }
 
+/* Hover effect for workspace buttons */
 #workspaces button:hover {
-  color: @blue;
+  background-color: #45475a; /* Hover effect */
+  color: #f5e0dc; /* Slightly lighter text on hover */
 }
 
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#pulseaudio.microphone,
-#network,
-#bluetooth,
-#custom-notifications,
-#custom-updates,
-#custom-player,
-#workspaces,
-#tray,
-#memory,
-#cpu,
-#disk,
-#backlight,
-#backlight {
-  background: @crust;
-  opacity: 1;
-  padding: 1.5px 7px 1.5px 7px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 1em;
-  margin-right: 5px;
-  margin-left: 5px;
+/* Style for inactive workspace buttons */
+#workspaces button.inactive {
+  background-color: #313244; /* Slightly darker background for inactive workspaces */
+  color: #cdd6f4;
 }
 
-#tray {
-  border-radius: 1em;
-  margin-right: 7px;
-}
-
-#workspaces {
-  border-radius: 1em;
-  margin-left: 5px;
-  padding-right: 0px;
-}
-
-#window {
-  border-radius: 1em;
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-#clock {
-  color: @green;
-  border-radius: 1em;
-  margin-right: 3px;
-  margin-left: 3px;
-}
-
-#network {
-  color: @yellow;
-  border-radius: 1em;
-  margin-right: 5px;
-}
-
-#custom-notifications {
-  color: @yellow;
-  border-radius: 1em;
-  padding-left: 9px;
-  padding-right: 15px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-#custom-updates {
-  color: @green;
-  border-radius: 1em;
-  border-left: 0px;
-  border-right: 0px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-#custom-player {
-  color: @mauve;
-  border-radius: 1em;
-  padding-left: 4px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-#memory {
-  color: @blue;
-  border-radius: 0 1em 1em 0;
-  margin-left: 0;
-}
-
-#cpu {
-  color: @sky;
-  border-radius: 1em 0 0 1em;
-  margin-right: 0;
-}
-
-#disk {
-  color: @yellow;
-  border-radius: 1em;
-  margin-left: 5px;
-}
-
-#bluetooth {
-  color: @blue;
-  border-radius: 1em;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
+/* General style for PulseAudio */
 #pulseaudio {
-  color: @blue;
-  border-radius: 1em;
-  margin-right: 1em;
+  background-color: #1e1e2e; /* Dark background */
+  color: #cdd6f4; /* Text color */
+  border-radius: 3px;
+  padding: 3px 5px; /* Compact padding */
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-#pulseaudio.microphone {
-  color: @rosewater;
-  border-radius: 0 1em 1em 0;
-  margin-left: 0;
+/* Hover effect for PulseAudio */
+#pulseaudio:hover {
+  background-color: #45475a; /* Slightly lighter on hover */
+  color: #f5e0dc; /* Lighter text color */
+}
+
+/* Style for volume percentage */
+#pulseaudio .value {
+  color: #a6e3a1; /* Green for volume percentage */
+}
+
+/* Style for muted audio */
+#pulseaudio.muted {
+  background-color: #f38ba8; /* Red background for muted state */
+  color: #1e1e2e; /* Dark text for contrast */
+}
+
+/* General style for Hyprland window module */
+#window {
+  background-color: #1e1e2e; /* Dark background */
+  color: #cdd6f4; /* Light text color */
+  border-radius: 3px;
+  padding: 3px 5px; /* Compact padding */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect for window module */
+#window:hover {
+  background-color: #45475a; /* Slightly lighter on hover */
+  color: #f5e0dc; /* Lighter text color */
+}
+
+/* Active window title */
+#window.active {
+  background-color: #b4befe; /* Brighter blue for active window */
+  color: #1e1e2e; /* Dark text for contrast */
+  font-weight: bold;
+}
+
+/* General style for the clock widget */
+#clock {
+  background-color: #1e1e2e; /* Dark background */
+  color: #cdd6f4; /* Light text color */
+  border-radius: 3px;
+  padding: 3px 5px; /* Compact padding */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect for the clock widget */
+#clock:hover {
+  background-color: #45475a; /* Slightly lighter on hover */
+  color: #f5e0dc; /* Lighter text color */
+}
+
+/* Style for the date and time text */
+#clock .date,
+#clock .time {
+  color: #a6e3a1; /* Green for date/time text */
+}
+
+/* Active state for time updates (optional for more interactivity) */
+#clock:active {
+  background-color: #b4befe; /* Brighter blue for interaction */
+  color: #1e1e2e; /* Dark text for contrast */
 }
