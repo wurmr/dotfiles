@@ -10,7 +10,7 @@ if (( $+commands[kubectl] )); then
   source <(kubectl completion zsh)
 fi
 
-
+alias l="ls"
 
 alias c="clear"
 alias lg="lazygit"
