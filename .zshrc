@@ -19,9 +19,9 @@ alias lg="lazygit"
 zstyle ':completion:*' menu select
 
 # Tool setup
-if (( $+commands[exa] )); then
-    alias ls="exa --icons"
-    alias ll="exa --icons -l --git"
+if (( $+commands[eza] )); then
+    alias ls="eza --icons"
+    alias ll="eza --icons -l --git"
 fi
 
 if (( $+commands[bat] )); then
