@@ -38,3 +38,5 @@ end)
 
 -- load custom values
 vim.opt.conceallevel = 1
+
+vim.opt.relativenumber = true
