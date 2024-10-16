@@ -1,3 +1,9 @@
+# source /etc/profile with bash
+if status is-login
+    exec bash -c "test -e /etc/profile && source /etc/profile;\
+    exec fish"
+end
+
 if status is-interactive
   # Commands to run in interactive sessions can go here
   set -g fish_greeting
@@ -37,3 +43,4 @@ if status is-interactive
     tmux attach -t TMUX || tmux new -s TMUX    
   end
 end
+
