@@ -15,6 +15,10 @@ if status is-interactive
     alias lg="lazygit"
   end
 
+  if type -q pcalc
+    alias pcalc="pcalc --colors"
+  end
+
   if type -q eza
     alias ls="eza --icons"
     alias ll="eza --icons -l --git"
@@ -33,6 +37,8 @@ if status is-interactive
   end
 
   fish_vi_key_bindings
+
+  set fish_history ""
 
   starship init fish | source
 
