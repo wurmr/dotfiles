@@ -1,6 +1,6 @@
 show=drun
-width=500
-height=550
+width=700
+height=350
 always_parse_args=true
 show_all=false
 term=kitty
