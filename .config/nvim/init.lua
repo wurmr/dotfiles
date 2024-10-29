@@ -40,3 +40,13 @@ end)
 vim.opt.conceallevel = 1
 
 vim.opt.relativenumber = true
+
+vim.lsp.handlers["textDocument/codeAction"] = vim.lsp.with(
+  vim.lsp.handlers.code_action, {
+    border = "rounded",
+    focusable = false,
+    style = "minimal",
+  }
+)
+
+vim.useSystemClipboard = true

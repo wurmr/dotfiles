@@ -16,9 +16,18 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- lspconfig.biome.setup {
+--   on_attach = nvlsp.on_attach,
+--   capabilities = nvlsp.capabilities,
+--   single_file_support = true,
+-- }
+
+-- vim.lsp.handlers["textDocument/codeAction"] = require("telescope.builtin").lsp_code_actions
+-- Setup biome LSP
 -- configuring single server, example: typescript
 -- lspconfig.typescript.setup {
 --   on_attach = nvlsp.on_attach,
 --   on_init = nvlsp.on_init,
 --   capabilities = nvlsp.capabilities,
+--   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
 -- }
