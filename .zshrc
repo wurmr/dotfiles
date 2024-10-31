@@ -51,4 +51,6 @@ if (( $+commands[tmux] )); then
   fi
 fi
 
+bindkey -v
+
 export EDITOR=nvim
