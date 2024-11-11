@@ -6,11 +6,14 @@ local lspconfig = require "lspconfig"
 -- EXAMPLE
 local servers = { "html", "cssls", "biome", "ts_ls" }
 local nvlsp = require "nvchad.configs.lspconfig"
+local lspformat = require "lsp-format"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
+    on_attach = function()
+      return { nvlsp.on_attach, lspformat.on_attach }
+    end,
     on_init = nvlsp.on_init,
     capabilities = nvlsp.capabilities,
   }
