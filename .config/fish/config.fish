@@ -15,6 +15,10 @@ if status is-interactive
     alias lg="lazygit"
   end
 
+  if type -q kubectl
+    alias k="kubectl"
+  end
+
   if type -q pcalc
     alias pcalc="pcalc --colors"
   end
