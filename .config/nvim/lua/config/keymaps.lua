@@ -10,3 +10,5 @@ vim.keymap.set(
 
 -- Map ; to command palet like NvChad
 vim.keymap.set("n", ";", ":", { noremap = true, silent = false })
+
+vim.keymap.set("n", "<leader>bs", ":SudaWrite<CR>", { desc = "Write with sudo" })
