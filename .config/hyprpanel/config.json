@@ -5,13 +5,26 @@
   "theme.font.weight": 300,
   "bar.layouts": {
     "0": {
-      "left": ["dashboard", "workspaces", "windowtitle"],
-      "middle": ["media"],
-      "right": ["volume", "systray", "clock", "notifications"]
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "systray",
+        "clock",
+        "notifications"
+      ]
     },
     "*": {
       "left": [],
-      "middle": ["workspaces"],
+      "middle": [
+        "workspaces"
+      ],
       "right": []
     }
   },
@@ -32,7 +45,9 @@
   "menus.dashboard.stats.enable_gpu": true,
   "menus.dashboard.shortcuts.enabled": false,
   "menus.dashboard.directories.enabled": false,
-  "bar.systray.ignore": ["cider"],
+  "bar.systray.ignore": [
+    "cider"
+  ],
   "bar.network.truncation_size": 0,
   "theme.bar.location2": "top",
   "theme.bar.buttons.media.enableBorder": false,
@@ -65,6 +80,5 @@
   "menus.media.hideAlbum": false,
   "menus.dashboard.controls.enabled": true,
   "menus.dashboard.shortcuts.left.shortcut4.command": "wofi --show drun",
-  "hyprpanel.restartCommand": "agsv1 -q; agsv1"
+  "hyprpanel.restartCommand": "hyprpanel -q; hyprpanel"
 }
-
