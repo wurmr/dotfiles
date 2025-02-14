@@ -1,0 +1,35 @@
+return {
+  enabled = false,
+  "huggingface/llm.nvim",
+  opts = {
+    backend = "ollama",
+    model = "starcoder2:7b",
+    -- model = "qwen2.5-coder:7b",
+    -- model = "codellama:7b-code",
+    -- model = "deepseek-coder:6.7b",
+    url = "http://localhost:11434",
+    request_body = {
+      temperature = 0.2,
+      top_p = 0.95,
+      system = "Complete the given code without explanation. Respond only with the code. Do not place the code in markdown. Do not place the code in markdown. Fill in the middle requests will be used.",
+    },
+    fim = {
+      enabled = true,
+      -- prefix = "<fim_prefix>",
+      -- middle = "<fim_middle>",
+      -- suffix = "<fim_suffix>",
+      -- pad = "<fim_pad>",
+    },
+    -- fim = {
+    --   enabled = true,
+    --   prefix = "151659",
+    --   middle = "151660",
+    --   suffix = "151661",
+    -- },
+    debounce_ms = 150,
+    enable_suggestions_on_startup = true,
+    context_window = 10240,
+    accept_keymap = "<Tab>",
+    dismiss_keymap = "<S-Tab>",
+  },
+}
