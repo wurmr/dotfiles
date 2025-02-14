@@ -43,6 +43,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 if (( $+commands[tmux] )); then
   if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
