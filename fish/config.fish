@@ -40,6 +40,10 @@ if status is-interactive
         thefuck --alias fk | source
     end
 
+    if type -q nvim
+        alias n=nvim
+    end
+
     fish_vi_key_bindings
 
     set fish_history ""
@@ -52,4 +56,6 @@ if status is-interactive
         and not set -q SSH_TTY
         tmux attach -t TMUX || tmux new -s TMUX
     end
+
+    set EDITOR nvim
 end

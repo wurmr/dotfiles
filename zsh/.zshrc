@@ -14,6 +14,7 @@ alias l="ls"
 
 alias c="clear"
 alias lg="lazygit"
+alias n="nvim"
 # alias t="talosctl"
 
 zstyle ':completion:*' menu select
