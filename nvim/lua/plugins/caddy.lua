@@ -9,7 +9,7 @@ return {
       formatters = {
         caddy_fmt = {
           command = "caddy",
-          args = { "fmt" },
+          args = { "fmt", "-" },
           stdin = true,
           condition = function(ctx)
             return vim.fs.basename(ctx.filename) ~= "Caddyfile"
