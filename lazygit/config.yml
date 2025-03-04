@@ -92,5 +92,5 @@ customCommands:
         key: "Confirm"
         title: "Commit"
         body: "Are you sure you want to commit?"
-    command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{ if .Form.Emoji }}{{ .Form.Emoji }} {{ end }}{.Form.Message}}'"
+    command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{ if .Form.Emoji }}{{ .Form.Emoji }} {{ end }}{{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
