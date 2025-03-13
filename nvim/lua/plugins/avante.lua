@@ -8,16 +8,11 @@ return {
     auto_suggestions_provider = "ollama",
     behaviour = {
       auto_suggestions = true,
+      enable_cursor_planning_mode = true,
     },
     ollama = {
-      api_key_name = "",
-      endpoint = "http://127.0.0.1:11434",
       model = "qwen2.5-coder:7b",
-      options = {
-        num_ctx = 32768,
-        temperature = 0,
-      },
-      stream = true,
+      stream = true, -- stream required for avante to see files in the side pane
     },
   },
   build = "make",
