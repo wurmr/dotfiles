@@ -5,6 +5,10 @@ return {
   opts = {
     debug = false,
     provider = "ollama",
+    auto_suggestions_provider = "ollama",
+    behaviour = {
+      auto_suggestions = true,
+    },
     ollama = {
       api_key_name = "",
       endpoint = "http://127.0.0.1:11434",
