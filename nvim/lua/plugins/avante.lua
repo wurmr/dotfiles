@@ -7,7 +7,7 @@ return {
     provider = "ollama",
     auto_suggestions_provider = "ollama",
     behaviour = {
-      auto_suggestions = true,
+      auto_suggestions = false,
       enable_cursor_planning_mode = true,
     },
     ollama = {
