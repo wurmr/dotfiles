@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+  cond = vim.env.COPILOT == nil,
   opts = {
     debug = false,
     provider = "ollama",
@@ -11,7 +11,7 @@ return {
       enable_cursor_planning_mode = true,
     },
     ollama = {
-      model = "qwen2.5-coder:7b",
+      model = "qwen3:4b",
       stream = true, -- stream required for avante to see files in the side pane
     },
   },
