@@ -8,9 +8,6 @@
 --   { noremap = true, silent = true, desc = "Resume" }
 -- )
 
--- Map ; to command palet like NvChad
-vim.keymap.set("n", ";", ":", { noremap = true, silent = false })
-
 vim.keymap.set("n", "<leader>bs", ":SudaWrite<CR>", { desc = "Write with sudo" })
 
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
