@@ -10,9 +10,11 @@ return {
       auto_suggestions = false,
       enable_cursor_planning_mode = true,
     },
-    ollama = {
-      model = "qwen3:4b",
-      stream = true, -- stream required for avante to see files in the side pane
+    providers = {
+      ollama = {
+        model = "qwen3:4b",
+        stream = true, -- stream required for avante to see files in the side pane
+      },
     },
   },
   build = "make",
