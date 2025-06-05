@@ -36,8 +36,8 @@ if status is-interactive
         zoxide init --cmd cd fish | source
     end
 
-    if type -q thefuck
-        thefuck --alias fk | source
+    if type -q pay-respects
+        pay-respects fish --alias | source
     end
 
     if type -q nvim
@@ -57,5 +57,6 @@ if status is-interactive
         tmux attach -t TMUX || tmux new -s TMUX
     end
 
+    set COPILOT true
     set EDITOR nvim
 end
