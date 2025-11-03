@@ -17,5 +17,11 @@ return {
         },
       },
     },
+    completion = {
+      ghost_text = {
+        -- enabled = false,
+        show_without_selection = false,
+      },
+    },
   },
 }
