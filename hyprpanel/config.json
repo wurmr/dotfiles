@@ -4,7 +4,7 @@
   "theme.font.size": "1.0rem",
   "theme.font.weight": 300,
   "bar.layouts": {
-    "0": {
+    "1": {
       "left": [
         "dashboard",
         "workspaces",
