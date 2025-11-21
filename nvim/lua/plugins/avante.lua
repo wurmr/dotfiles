@@ -1,9 +1,7 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  cond = vim.env.COPILOT == nil,
   opts = {
-    debug = false,
     provider = "ollama",
     auto_suggestions_provider = "ollama",
     behaviour = {
@@ -12,8 +10,10 @@ return {
     },
     providers = {
       ollama = {
-        model = "qwen3:4b",
-        stream = true, -- stream required for avante to see files in the side pane
+        disabled_tools = { "rag_search" },
+        model = "gpt-oss:20b",
+        -- disable_tools = true,
+        -- is_env_set = require("avante.providers.ollama").check_endpoint_alive,
       },
     },
   },
