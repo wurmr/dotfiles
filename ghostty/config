@@ -1,4 +1,12 @@
-theme = Catppuccin Mocha
+theme = "Catppuccin Mocha"
 window-decoration = false
-keybind = clear
+
+shell-integration = "fish"
+# Required for Ghostty to allow clipboard paste from keybinds
+# input-allow-clipboard-access = true
+
+# Keybinds (classic syntax)
+# keybind = "Ctrl+Shift+V:paste_from_clipboard"
+# keybind = "Shift+Insert:paste_from_clipboard"
+#
 
