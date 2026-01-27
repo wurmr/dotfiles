@@ -1,5 +1,5 @@
 theme = "Catppuccin Mocha"
-window-decoration = false
+window-decoration = true
 
 shell-integration = "fish"
 # Required for Ghostty to allow clipboard paste from keybinds
