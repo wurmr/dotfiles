@@ -32,7 +32,7 @@ Scope {
 
                     Item { Layout.fillWidth: true }
 
-                    SysTray { panelWindow: barWindow2 }
+                    // SysTray { panelWindow: barWindow2 }
                 }
             }
         }
