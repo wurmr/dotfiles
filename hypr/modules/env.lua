@@ -1,0 +1,28 @@
+-- Environment variables.
+
+hl.env("XCURSOR_SIZE", "24")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+
+-- Nvidia / Wayland tuning
+hl.env("GDK_BACKEND", "wayland,x11")
+hl.env("SDL_VIDEODRIVER", "wayland")
+hl.env("CLUTTER_BACKEND", "wayland")
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
+hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("__NV_PRIME_RENDER_OFFLOAD", "1")
+hl.env("PROTON_ENABLE_NGX_UPDATER", "1")
+hl.env("__VK_LAYER_NV_optimus", "NVIDIA_only")
+hl.env("NVD_BACKEND", "direct")
+hl.env("__GL_GSYNC_ALLOWED", "1")
+hl.env("__GL_VRR_ALLOWED", "1")
+hl.env("WLR_USE_LIBINPUT", "1")
+hl.env("__GL_MaxFramesAllowed", "1")
+hl.env("WLR_RENDERER_ALLOW_SOFTWARE", "1")
+hl.env("XDG_SESSION_TYPE", "wayland")
