@@ -9,11 +9,7 @@ hl.config({
 		kb_options = "ctrl:nocaps",
 
 		follow_mouse = 1,
-		sensitivity = 0,
-
-		touchpad = {
-			natural_scroll = true,
-		},
+		sensitivity = 1,
 	},
 })
 
@@ -24,7 +20,12 @@ hl.config({
 	},
 })
 
+-- ZSA Navigator (connects through the Voyager, hence the "voyager-touchpad" name).
 hl.device({
-	name = "epic-mouse-v1",
-	sensitivity = -0.5,
+	name = "zsa-technology-labs-voyager-touchpad",
+	natural_scroll = true,
+	clickfinger_behavior = true,
+	scroll_method = "2fg",
+	sensitivity = 0,
+	scroll_factor = 0.25,
 })

@@ -1,7 +1,7 @@
 -- Workspace-to-monitor pinning + per-workspace layout.
 
 hl.workspace_rule({ workspace = "1", monitor = "DP-1", layout = "scrolling", default = true, persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = "DP-1", layout = "master" })
+hl.workspace_rule({ workspace = "2", monitor = "DP-1", layout = "scrolling" })
 hl.workspace_rule({
 	workspace = "7",
 	monitor = "DP-3",

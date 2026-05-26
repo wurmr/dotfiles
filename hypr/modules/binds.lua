@@ -87,10 +87,10 @@ end
 -- Resize submap
 hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
 hl.define_submap("resize", function()
-	hl.bind("L", hl.dsp.window.resize({ x = 75, y = 0 }), { repeating = true })
-	hl.bind("H", hl.dsp.window.resize({ x = -75, y = 0 }), { repeating = true })
-	hl.bind("K", hl.dsp.window.resize({ x = 0, y = -80 }), { repeating = true })
-	hl.bind("J", hl.dsp.window.resize({ x = 0, y = 80 }), { repeating = true })
+	hl.bind("L", hl.dsp.window.resize({ x = 75, y = 0, relative = true }, { repeating = true }))
+	hl.bind("H", hl.dsp.window.resize({ x = -75, y = 0, relative = true }), { repeating = true })
+	hl.bind("K", hl.dsp.window.resize({ x = 0, y = -80, relative = true }), { repeating = true })
+	hl.bind("J", hl.dsp.window.resize({ x = 0, y = 80, relative = true }), { repeating = true })
 	hl.bind("Escape", hl.dsp.submap("reset"))
 end)
 

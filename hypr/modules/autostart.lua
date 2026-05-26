@@ -10,7 +10,7 @@ hl.on("hyprland.start", function()
 
 	hl.exec_cmd("kwalletd6")
 	hl.exec_cmd("qs -c noctalia-shell")
-	hl.exec_cmd("udiskie --tray")
+	hl.exec_cmd("udiskie --smart-tray")
 	hl.exec_cmd("dropbox")
 	hl.exec_cmd("/opt/localsend/localsend --hidden")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
