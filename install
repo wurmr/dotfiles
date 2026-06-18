@@ -1,4 +1,24 @@
 #!/bin/sh
+set -e
 
-stow .
-stow --target="$HOME" zsh
+# Run from the dotfiles directory regardless of where this is invoked
+cd "$(dirname "$0")"
+
+# We use `git reset --hard` below to discard files stow adopts, so refuse to
+# run on a dirty tree to avoid clobbering uncommitted changes.
+if [ -n "$(git status --porcelain)" ]; then
+	echo "Refusing to run: working tree is dirty. Commit or stash changes first." >&2
+	exit 1
+fi
+
+# --adopt lets stow take over pre-existing files (e.g. a devcontainer's
+# default ~/.zshrc) instead of aborting on conflict. It moves those files
+# into the repo, so restore afterwards to keep our tracked versions.
+stow --adopt .
+stow --adopt --target="$HOME" zsh
+
+# Discard anything stow adopted, restoring our config as the symlink target.
+git reset --hard
+
+# Sync nvim as well
+command -v nvim >/dev/null && nvim --headless "+Lazy! sync" +qa
