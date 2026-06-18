@@ -1,14 +1,13 @@
-if vim.env.SSH_TTY == nil then
+local has_clipboard_tool = vim.fn.executable("wl-copy") == 1
+  or vim.fn.executable("xclip") == 1
+  or vim.fn.executable("xsel") == 1
+
+if not has_clipboard_tool then
+  local osc52 = require("vim.ui.clipboard.osc52")
   vim.g.clipboard = {
     name = "OSC 52",
-    copy = {
-      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-    },
-    paste = {
-      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-    },
+    copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+    -- paste intentionally omitted: use Ghostty's Ctrl+Shift+V (terminal paste)
   }
 end
 
