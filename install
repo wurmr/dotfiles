@@ -21,4 +21,6 @@ stow --adopt --target="$HOME" zsh
 git reset --hard
 
 # Sync nvim as well
-command -v nvim >/dev/null && nvim --headless "+Lazy! sync" +qa
+if command -v nvim >/dev/null; then
+	nvim --headless "+Lazy! sync" +qa
+fi

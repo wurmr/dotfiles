@@ -7,7 +7,7 @@ if not has_clipboard_tool then
   vim.g.clipboard = {
     name = "OSC 52",
     copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
-    -- paste intentionally omitted: use Ghostty's Ctrl+Shift+V (terminal paste)
+    paste = { ["+"] = osc52.paste("+"), ["*"] = osc52.paste("*") },
   }
 end
 
