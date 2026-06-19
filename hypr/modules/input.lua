@@ -26,6 +26,6 @@ hl.device({
 	natural_scroll = true,
 	clickfinger_behavior = true,
 	scroll_method = "2fg",
-	sensitivity = 0,
+	sensitivity = 0.3,
 	scroll_factor = 0.25,
 })

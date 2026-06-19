@@ -8,6 +8,9 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     set -g fish_greeting
 
+    # keychain
+    # keychain --eval --quiet id_rsa | source
+
     alias l="ls"
     alias c="clear"
 
@@ -48,6 +51,8 @@ if status is-interactive
 
     set fish_history ""
 
+    # set -Ux FZF_REVERSE_ISEARCH_COMMAND history
+
     starship init fish | source
 
     # TMUX
@@ -57,6 +62,17 @@ if status is-interactive
         tmux attach -t TMUX || tmux new -s TMUX
     end
 
+    if test -d ~/.local/bin
+        fish_add_path ~/.local/bin
+    end
+
+    if test -d ~/.cargo/bin
+        fish_add_path ~/.cargo/bin
+    end
+
+    set -gx SSH_AUTH_SOCK /run/user/(id -u)/ssh-agent.socket
+
     set COPILOT true
     set EDITOR nvim
+    set OLLAMA_HOST 192.168.27.72
 end
