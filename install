@@ -7,8 +7,8 @@ cd "$(dirname "$0")"
 # We use `git reset --hard` below to discard files stow adopts, so refuse to
 # run on a dirty tree to avoid clobbering uncommitted changes.
 if [ -n "$(git status --porcelain)" ]; then
-	echo "Refusing to run: working tree is dirty. Commit or stash changes first." >&2
-	exit 1
+  echo "Refusing to run: working tree is dirty. Commit or stash changes first." >&2
+  exit 1
 fi
 
 # --adopt lets stow take over pre-existing files (e.g. a devcontainer's
@@ -22,5 +22,21 @@ git reset --hard
 
 # Sync nvim as well
 if command -v nvim >/dev/null; then
-	nvim --headless "+Lazy! sync" +qa
+  nvim --headless "+Lazy! sync" +qa
+fi
+
+# identity — from forwarded host env (already context-correct on the host)
+[ -n "${GIT_AUTHOR_NAME:-}" ] && git config --global user.name "$GIT_AUTHOR_NAME"
+[ -n "${GIT_AUTHOR_EMAIL:-}" ] && git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+# signing
+git config --global gpg.format ssh
+git config --global user.signingkey "key::$(ssh-add -L | head -1)"
+git config --global commit.gpgsign true
+git config --global gpg.ssh.allowedSignersFile ~/.config/git/allowed_signers
+
+# allowed-signers — built from the forwarded email + agent key, no hardcoded identity
+if [ -n "${GIT_AUTHOR_EMAIL:-}" ]; then
+  mkdir -p ~/.config/git
+  echo "${GIT_AUTHOR_EMAIL} $(ssh-add -L | head -1)" >~/.config/git/allowed_signers
 fi
