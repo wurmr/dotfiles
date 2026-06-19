@@ -38,7 +38,7 @@ if (( $+commands[fnm] )); then
 fi
 
 if (( $+commands[pay-respects] )); then
-  eval $(pay-respects zsh --alias fk)
+  eval "$(pay-respects zsh --alias fk)"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
