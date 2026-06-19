@@ -32,10 +32,17 @@ return {
     { "<c-j>", move("j", "down"), desc = "Move to below split" },
     { "<c-k>", move("k", "up"), desc = "Move to above split" },
     { "<c-l>", move("l", "right"), desc = "Move to right split" },
-    { "<c-\\>", function() require("smart-splits").move_cursor_previous() end, desc = "Move to previous split" },
+    {
+      "<c-\\>",
+      function()
+        require("smart-splits").move_cursor_previous()
+      end,
+      desc = "Move to previous split",
+    },
   },
   opts = {
     -- tmux is auto-detected; navigation seamlessly crosses nvim windows and tmux panes
     at_edge = "stop",
+    multiplexer_integration = "wezterm",
   },
 }
