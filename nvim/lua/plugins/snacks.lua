@@ -8,6 +8,7 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
+          trash = false,
           exclude = { ".git", "node_modules" },
           layout = {
             layout = { position = "right" },
