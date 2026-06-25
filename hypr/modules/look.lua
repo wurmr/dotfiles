@@ -1,4 +1,4 @@
--- Look & feel: xwayland, general, master, group, decoration, animations, dwindle, misc.
+-- Look & feel: xwayland, general, scrolling, group, decoration, animations, misc.
 
 local c = require("mocha")
 
@@ -10,6 +10,7 @@ hl.config({
 
 hl.config({
 	general = {
+		layout = "scrolling",
 		border_size = 3,
 		col = {
 			active_border = { colors = { c.mauve, c.flamingo }, angle = 90 },
@@ -24,8 +25,13 @@ hl.config({
 })
 
 hl.config({
-	master = {
-		orientation = "left",
+	scrolling = {
+		column_width = 0.5,
+		focus_fit_method = 1, -- 1 = fit, 0 = center
+		follow_focus = true,
+		explicit_column_widths = "0.333, 0.5, 0.667, 1.0",
+		direction = "right",
+		fullscreen_on_one_column = true,
 	},
 })
 
@@ -91,12 +97,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default
 hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "default", style = "popin" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "default" })
 hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "default" })
-
-hl.config({
-	dwindle = {
-		preserve_split = true,
-	},
-})
 
 hl.config({
 	misc = {

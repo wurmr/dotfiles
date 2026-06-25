@@ -1,14 +1,8 @@
 -- Keybindings + resize submap.
 --
--- API semantics worth watching during the smoke test:
---
--- 1. `hl.dsp.window.resize({dx, dy})` is assumed to mirror old `resizeactive dx dy`.
---    If keyboard resize in the submap doesn't work, try `hl.dsp.window.resize("75 0")`
---    (string form) or pass the values some other way the stubs accept.
--- 2. `hl.dsp.layout("addmaster")` etc. assume the legacy `layoutmsg` dispatcher
---    accepts a single space-separated string in Lua. If "swapwithmaster master"
---    or "swapcol l" don't work, try splitting into varargs:
---    `hl.dsp.layout("swapwithmaster", "master")`.
+-- Scrolling is the only layout (see look.lua / workspaces.lua). The layout
+-- messages used below (promote, swapcol, consume_or_expel, fit, colresize) are
+-- native scrolling-layout messages dispatched via hl.dsp.layout(msg).
 
 local mainMod = "SUPER"
 local terminal = "ghostty"
@@ -52,20 +46,20 @@ hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + W", hl.dsp.group.toggle())
 
--- Master layout messages
-hl.bind(mainMod .. " + M", hl.dsp.layout("swapwithmaster master"))
-hl.bind(mainMod .. " + Y", hl.dsp.layout("removemaster"))
+-- Scrolling layout: column ordering / promotion
+hl.bind(mainMod .. " + P", hl.dsp.layout("promote")) -- window -> its own new column
+hl.bind(mainMod .. " + O", hl.dsp.layout("swapcol r")) -- swap column with right neighbor
+hl.bind(mainMod .. " + I", hl.dsp.layout("swapcol l")) -- swap column with left neighbor
 
--- Scrolling layout messages
-hl.bind(mainMod .. " + P", hl.dsp.layout("promote"))
-hl.bind(mainMod .. " + O", hl.dsp.layout("swapcol r"))
+-- Scrolling layout: combine / split within a column (vertical stacking)
+-- alone in a column -> consume into neighbor; stacked -> expel to its own column
+hl.bind(mainMod .. " + U", hl.dsp.layout("consume_or_expel next"))
+hl.bind(mainMod .. " + Y", hl.dsp.layout("consume_or_expel prev"))
 
--- SUPER+I dispatches both: addmaster on master workspaces, swapcol l on scrolling.
--- Each layout ignores messages it doesn't understand, so both can fire safely.
-hl.bind(mainMod .. " + I", function()
-	hl.dispatch(hl.dsp.layout("addmaster"))
-	hl.dispatch(hl.dsp.layout("swapcol l"))
-end)
+-- Scrolling layout: column sizing
+hl.bind(mainMod .. " + E", hl.dsp.layout("fit all")) -- grow active column into free space
+hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf")) -- cycle to a wider preset
+hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -conf")) -- cycle to a narrower preset
 
 -- Move focus
 for key, dir in pairs({ H = "l", L = "r", K = "u", J = "d" }) do
