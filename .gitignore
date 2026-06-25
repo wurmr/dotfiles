@@ -1,2 +1,5 @@
 .config/nvim/lazy-lock.json
 .config/thefuck/__pycache__
+
+# Machine-local shell overrides (~/.zshrc.local lives outside the repo)
+fish/local.fish

@@ -75,4 +75,9 @@ if status is-interactive
     set COPILOT true
     set EDITOR nvim
     set OLLAMA_HOST 192.168.27.72
+
+    # Machine-local overrides, not tracked in git (see .gitignore)
+    if test -f ~/.config/fish/local.fish
+        source ~/.config/fish/local.fish
+    end
 end

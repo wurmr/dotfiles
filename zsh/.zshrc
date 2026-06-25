@@ -56,3 +56,6 @@ fi
 bindkey -v
 
 export EDITOR=nvim
+
+# Machine-local overrides, not tracked in git
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
