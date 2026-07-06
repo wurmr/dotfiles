@@ -1,0 +1,14 @@
+[keys]
+prefix = "ctrl+g"
+
+[ui.toast]
+delivery = "herdr"
+
+[theme]
+name = "catppuccin"
+
+[[keys.command]]
+key = "prefix+l"
+type = "pane"
+command = "lazygit"
+description = "run lazygit"
