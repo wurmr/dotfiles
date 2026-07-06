@@ -46,10 +46,10 @@ fi
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-if (( $+commands[tmux] )); then
-  if [ -z "$TMUX" ] && [ -z "$SSH_TTY" ]
+if (( $+commands[herdr] )); then
+  if [ -z "$HERDR_ENV" ] && [ -z "$SSH_TTY" ]
   then
-    tmux attach -t TMUX || tmux new -s TMUX
+    herdr
   fi
 fi
 

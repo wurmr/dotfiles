@@ -55,11 +55,11 @@ if status is-interactive
 
     starship init fish | source
 
-    # TMUX
-    if type -q tmux
-        and not set -q TMUX
+    # herdr
+    if type -q herdr
+        and not set -q HERDR_ENV
         and not set -q SSH_TTY
-        tmux attach -t TMUX || tmux new -s TMUX
+        herdr
     end
 
     if test -d ~/.local/bin
