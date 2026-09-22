@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 prefix = "ctrl+g"
 
@@ -12,3 +13,9 @@ key = "prefix+l"
 type = "pane"
 command = "lazygit"
 description = "run lazygit"
+
+[[keys.command]]
+key = "prefix+p"
+type = "pane"
+command = "calc"
+description = "run calculator"

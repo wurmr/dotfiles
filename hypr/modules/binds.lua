@@ -7,32 +7,32 @@
 local mainMod = "SUPER"
 local terminal = "ghostty"
 local browser = "zen-browser"
-local ipc = "qs -c noctalia-shell ipc call"
+local ipc = "noctalia msg"
 
 -- Pyprland binds
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pypr shift_monitors +1"))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("pypr toggle cider && hyprctl dispatch bringactivetotop"))
 
 -- Media controls
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. " media toggle"))
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. " media next"))
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. " media previous"))
 
 -- Noctalia core
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(ipc .. " launcher toggle"))
-hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(ipc .. " launcher emoji"))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. " controlCenter toggle"))
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " settings toggle"))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher /emo"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " settings-toggle"))
 
 -- Noctalia session
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. " lockScreen lock"))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. " session lock"))
 
 -- Noctalia media keys (locked + repeating like bindel/bindl)
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. " volume increase"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. " volume decrease"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. " volume muteOutput"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. " brightness increase"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. " brightness decrease"), { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. " volume-up"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. " volume-down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. " volume-mute"), { locked = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. " brightness-up"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. " brightness-down"), { locked = true, repeating = true })
 
 -- Apps + window ops
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -57,7 +57,8 @@ hl.bind(mainMod .. " + U", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. " + Y", hl.dsp.layout("consume_or_expel prev"))
 
 -- Scrolling layout: column sizing
-hl.bind(mainMod .. " + E", hl.dsp.layout("fit all")) -- grow active column into free space
+hl.bind(mainMod .. " + E", hl.dsp.layout("fit expand")) -- expand active window into remaining free space
+hl.bind(mainMod .. " + Z", hl.dsp.layout("fit_into_view")) -- pull active column fully into view
 hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf")) -- cycle to a wider preset
 hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -conf")) -- cycle to a narrower preset
 
