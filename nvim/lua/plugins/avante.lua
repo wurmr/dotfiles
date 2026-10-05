@@ -1,6 +1,7 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
+  enabled = false,
   opts = {
     provider = "ollama",
     auto_suggestions_provider = "ollama",
