@@ -1,6 +1,11 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    explorer = {
+      -- Delete files outright instead of moving them to the system trash
+      -- (gio/trash-cli aren't available in dev containers).
+      trash = false,
+    },
     picker = {
       ignored = true,
       hidden = true,
@@ -8,7 +13,6 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
-          trash = false,
           exclude = { ".git", "node_modules" },
           layout = {
             layout = { position = "right" },
