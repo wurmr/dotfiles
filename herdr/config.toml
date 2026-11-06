@@ -8,6 +8,7 @@ delivery = "herdr"
 [theme]
 name = "catppuccin"
 
+auto_switch = false
 [[keys.command]]
 key = "prefix+l"
 type = "pane"
