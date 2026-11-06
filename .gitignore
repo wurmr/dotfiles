@@ -3,3 +3,6 @@
 
 # Machine-local shell overrides (~/.zshrc.local lives outside the repo)
 fish/local.fish
+
+# herdr runtime state
+herdr/session-snapshots/
