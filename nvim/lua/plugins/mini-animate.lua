@@ -1,4 +1,4 @@
 return {
-  "nvim-mini/mini.animate",
-  opts = { cursor = { enable = false } },
+  -- "nvim-mini/mini.animate",
+  -- opts = { cursor = { enable = true } },
 }
