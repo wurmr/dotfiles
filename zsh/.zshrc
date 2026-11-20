@@ -57,5 +57,29 @@ bindkey -v
 
 export EDITOR=nvim
 
+# herdr-core terminals run under a long-lived daemon, so on a remote machine they
+# never inherit the SSH_AUTH_SOCK of the ssh session that forwarded an agent.
+# Point them at a stable symlink, re-aimed at a live forwarded socket whenever it
+# goes stale. Machines that never had a forwarded agent (this laptop) keep theirs.
+if [[ -n $HC_TERMINAL_ID ]]; then
+  _hc_agent_link=~/.ssh/agent.sock
+  _hc_agent_refresh() {
+    [[ -S $_hc_agent_link ]] && return 0
+    local s
+    for s in /tmp/ssh-*/agent.*(N=om) /tmp/auth-agent*/listener.sock(N=om); do
+      [[ -O $s ]] || continue
+      SSH_AUTH_SOCK=$s ssh-add -l >/dev/null 2>&1
+      (( $? == 2 )) && continue   # 2 = could not reach the agent
+      ln -sfn $s $_hc_agent_link && return 0
+    done
+    return 1
+  }
+  if _hc_agent_refresh || [[ -L $_hc_agent_link ]]; then
+    export SSH_AUTH_SOCK=$_hc_agent_link
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd _hc_agent_refresh
+  fi
+fi
+
 # Machine-local overrides, not tracked in git
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
