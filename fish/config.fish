@@ -56,11 +56,11 @@ if status is-interactive
     starship init fish | source
 
     # herdr
-    if type -q herdr
-        and not set -q HERDR_ENV
-        and not set -q SSH_TTY
-        herdr
-    end
+    # if type -q herdr
+    #     and not set -q HERDR_ENV
+    #     and not set -q SSH_TTY
+    #     herdr
+    # end
 
     if test -d ~/.local/bin
         fish_add_path ~/.local/bin

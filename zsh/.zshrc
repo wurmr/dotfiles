@@ -46,12 +46,12 @@ fi
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-if (( $+commands[herdr] )); then
-  if [ -z "$HERDR_ENV" ] && [ -z "$SSH_TTY" ]
-  then
-    herdr
-  fi
-fi
+# if (( $+commands[herdr] )); then
+#   if [ -z "$HERDR_ENV" ] && [ -z "$SSH_TTY" ]
+#   then
+#     herdr
+#   fi
+# fi
 
 bindkey -v
 

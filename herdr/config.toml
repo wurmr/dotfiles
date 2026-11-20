@@ -20,3 +20,6 @@ key = "prefix+p"
 type = "pane"
 command = "calc"
 description = "run calculator"
+
+[remote]
+manage_ssh_config = false
