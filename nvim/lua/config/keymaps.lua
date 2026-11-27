@@ -1,27 +1,11 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
--- vim.keymap.set(
---   "n",
---   "<leader>sx",
---   require("telescope.builtin").resume,
---   { noremap = true, silent = true, desc = "Resume" }
--- )
 
-vim.keymap.set("n", "<leader>bs", ":SudaWrite<CR>", { desc = "Write with sudo" })
+vim.keymap.set("n", "<leader>bs", "<cmd>SudaWrite<cr>", { desc = "Write with sudo" })
+vim.keymap.set("n", "<leader>bu", "<cmd>e!<cr>", { desc = "Undo (Reload from disk)" })
 
-vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
-
-vim.keymap.set("n", "<leader>bu", ":e!<CR>", { desc = "Undo (Reload from disk)" })
-
--- vim.keymap.set("n", "yc", "yygccp", { noremap = true, desc = "Yank and comment" })
--- vim.keymap.set("n", "<C-c>", "ciw")
---
--- JQPlayground
--- start the playground
-vim.keymap.set("n", "<leader>jq", vim.cmd.JqPlayground)
--- when in the query window, run the jq query
-vim.keymap.set("n", "R", "<Plug>(JqPlaygroundRunQuery)")
+vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 
 vim.keymap.set("n", "<leader>mx", function()
   local line = vim.api.nvim_get_current_line()

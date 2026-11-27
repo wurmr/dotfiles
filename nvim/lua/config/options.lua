@@ -4,9 +4,9 @@
 local opt = vim.opt
 
 opt.winbar = "%=%m %f"
-opt.ignorecase = true
 
-vim.opt.clipboard = "unnamedplus"
+-- LazyVim clears this over SSH; keep it so copies go out via OSC 52 below
+opt.clipboard = "unnamedplus"
 
 local wl = vim.env.WAYLAND_DISPLAY
 local has_wayland = wl

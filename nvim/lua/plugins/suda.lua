@@ -1,3 +1,4 @@
 return {
-  "lambdalisue/suda.vim",
+  "lambdalisue/vim-suda",
+  cmd = { "SudaRead", "SudaWrite" },
 }
